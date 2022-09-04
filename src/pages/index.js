@@ -1,124 +1,107 @@
 import * as React from "react"
+import { graphql } from "gatsby"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { StructuredText } from 'react-datocms';
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
+import {AiOutlineCheck} from 'react-icons/ai'
+
+import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
+
+import BackgroundImage from 'gatsby-background-image'
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import * as styles from "../components/index.module.css"
 
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-  },
-  {
-    text: "Examples",
-    url: "https://github.com/gatsbyjs/gatsby/tree/master/examples",
-    description:
-      "A collection of websites ranging from very basic to complex/complete that illustrate how to accomplish specific tasks within your Gatsby sites.",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Learn how to add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-  },
-]
+import Box from "../components/Box"
 
-const samplePageLinks = [
-  {
-    text: "Page 2",
-    url: "page-2",
-    badge: false,
-    description:
-      "A simple example of linking to another page within a Gatsby site",
-  },
-  { text: "TypeScript", url: "using-typescript" },
-  { text: "Server Side Rendering", url: "using-ssr" },
-  { text: "Deferred Static Generation", url: "using-dsg" },
-]
 
-const moreLinks = [
-  { text: "Join us on Discord", url: "https://gatsby.dev/discord" },
-  {
-    text: "Documentation",
-    url: "https://gatsbyjs.com/docs/",
-  },
-  {
-    text: "Starters",
-    url: "https://gatsbyjs.com/starters/",
-  },
-  {
-    text: "Showcase",
-    url: "https://gatsbyjs.com/showcase/",
-  },
-  {
-    text: "Contributing",
-    url: "https://www.gatsbyjs.com/contributing/",
-  },
-  { text: "Issues", url: "https://github.com/gatsbyjs/gatsby/issues" },
-]
+import { gsap } from "gsap";
 
-const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
+import Undraw from "../assets/undraw.svg"
 
-const IndexPage = () => (
+import House from "../assets/house.svg"
+import Book from "../assets/book.svg"
+
+const IndexPage = (props) => {
+
+/*   console.log(props)
+
+  const image = getImage(props.data.datoCmsPage.cover)
+  const imageData = props.data.datoCmsPage.cover.fluid
+  
+  const bckg = React.useRef();
+  const info = React.useRef();
+
+  React.useEffect(() => {
+    const tl = gsap.timeline({defaults: {duration:.8}})
+    tl.fromTo(bckg.current, {scale:8.2}, {scale:0.8})
+    tl.fromTo(bckg.current, {opacity:0.2}, {opacity:1},'<')
+    tl.fromTo(info.current,{opacity:0.2}, {opacity:1},'<')
+
+  },[]);  */
+  
+ return (
   <Layout>
-    <Seo title="Home" />
-    <div className={styles.textCenter}>
-      <StaticImage
-        src="../images/example.png"
-        loading="eager"
-        width={64}
-        quality={95}
-        formats={["auto", "webp", "avif"]}
-        alt=""
-        style={{ marginBottom: `var(--space-3)` }}
-      />
-      <h1>
-        Welcome to <b>Gatsby!</b>
-      </h1>
-      <p className={styles.intro}>
-        <b>Example pages:</b>{" "}
-        {samplePageLinks.map((link, i) => (
-          <React.Fragment key={link.url}>
-            <Link to={link.url}>{link.text}</Link>
-            {i !== samplePageLinks.length - 1 && <> · </>}
-          </React.Fragment>
-        ))}
-        <br />
-        Edit <code>src/pages/index.js</code> to update this page.
-      </p>
-    </div>
-    <ul className={styles.list}>
-      {links.map(link => (
-        <li key={link.url} className={styles.listItem}>
-          <a
-            className={styles.listItemLink}
-            href={`${link.url}${utmParameters}`}
-          >
-            {link.text} ↗
-          </a>
-          <p className={styles.listItemDescription}>{link.description}</p>
-        </li>
-      ))}
-    </ul>
-    {moreLinks.map((link, i) => (
-      <React.Fragment key={link.url}>
-        <a href={`${link.url}${utmParameters}`}>{link.text}</a>
-        {i !== moreLinks.length - 1 && <> · </>}
-      </React.Fragment>
-    ))}
-  </Layout>
-)
+  <div className="flex flex-row justify-center items-center w-full">
 
+    <div className="hidden md:flex flex-row justify-center items-center md:w-1/2">
+      <House height={300} />
+    </div>
+
+    <div className="flex flex-col text-headline font-thin md:w-1/2 leading-8">
+      <h2 className=" text-7xl font-black hover:text-black my-5">Web Development & Data Analytics</h2>
+      <RoughNotationGroup show={true}>
+        <p>
+        Hello! My name is 
+          <RoughNotation type="highlight" color="#ffd803"> Marko Aleksendrić </RoughNotation><br/>
+        I am the author of the book 
+        <RoughNotation type="underline"><Link to="/book" className=" font-bold"> FullStack FastAPI, React and MongoDB </Link></RoughNotation>
+   - that's probably why you are here, right? This is my personal website on which I post about stuff that I find interesting, projects and really anything related to:<br/>
+  <RoughNotation type="box"><AiOutlineCheck className="inline" /> full-stack web development </RoughNotation><br/>  
+  <RoughNotation type="highlight"  color="#ffd803"><AiOutlineCheck className="inline" /> Python / JavaScript </RoughNotation><br/>
+  <RoughNotation type="box"><AiOutlineCheck className="inline" /> Data Visualization and Data Science </RoughNotation><br/> 
+ </p>
+
+</RoughNotationGroup> 
+  
+
+
+  </div>
+
+
+
+  </div>
+  
+
+
+{/*     <div ref={bckg}>
+     <BackgroundImage
+ 
+      Tag="section"
+      className=" h-96 p-6 bg-cover bg-center bg-no-repeat w-full flex flex-col justify-center items-center text-gray"
+      fluid={imageData}
+      backgroundColor={"#fefefe"}
+    >
+      <div className=" drop-shadow-lg text-5xl">freethrow</div>
+      <div ref={info} className=" drop-shadow-lg text-2xl border-t-2 border-gray">web development + data science</div>
+    </BackgroundImage>
+    </div> */}
+ 
+ {/* 
+      <div className=" bg-yellow h-full flex flex-col"><StructuredText data={props.data.datoCmsPage.content} /></div>
+    
+    
+ */}
+
+
+
+
+
+   
+  </Layout>
+  )
+  }
 /**
  * Head export to define metadata for the page
  *
@@ -127,3 +110,25 @@ const IndexPage = () => (
 export const Head = () => <Seo title="Home" />
 
 export default IndexPage
+
+export const query = graphql`
+query HomePageQuery {
+  datoCmsPage(name: {eq: "first"}) {
+    id
+    cover {
+      fluid {
+        base64
+        width
+        height
+        sizes
+        src
+        srcSet
+      }
+    }
+    content {
+      value
+    }
+  }
+}
+
+`

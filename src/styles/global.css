@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans:wght@100;400;700&display=swap');
+@font-face {
+   font-family: "DarkGrotesque";
+   src: url("../fonts/DarkerGrotesque-Black.woff");
+ }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+
+   body {
+    @apply font-Montserrat font-normal
+   }
+
+  }
+
+@layer components {
+   .structured p {
+      @apply my-3 leading-7
+   }
+
+   .structured strong{
+      @apply font-bold
+   }
+
+   .structured a {
+      @apply p-1 bg-yellow hover:cursor-pointer
+   }
+}

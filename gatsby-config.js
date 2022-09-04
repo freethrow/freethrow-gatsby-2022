@@ -1,18 +1,39 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Freethrow - the personal site of Marko Aleksendric`,
+    description: `Web Development, FARM stack book, Data Analytics, Data Science `,
     author: `@gatsbyjs`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
+    'gatsby-plugin-postcss',
     `gatsby-plugin-image`,
+    {
+      resolve:`gatsby-source-datocms`,
+      options: {
+        apiToken: process.env.DATOCMS_API_TOKEN,
+        environment: `main`,
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /assets/ // See below to configure properly
+        }
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
