@@ -46,6 +46,7 @@ const AboutPage = (props) => {
   <div className="grid md:grid-cols-2">
     <div className="flex flex-row justify-center items-center">
     <form name="contact" method="POST" data-netlify="true">
+    <input type="hidden" name="form-name" value="contact" />
                 <div class="py-12">
                     <h2 class=" text-3xl font-black hover:text-black my-5">Drop me a line</h2>
                     <div class="mt-8 max-w-xl">
