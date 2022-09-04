@@ -50,7 +50,7 @@ const IndexPage = (props) => {
     </div>
 
     <div className="flex flex-col text-headline font-thin md:w-1/2 leading-8">
-      <h2 className=" text-7xl font-black hover:text-black my-5">Web Development & Data Analytics</h2>
+      <h2 className="text-2xl lg:text-7xl font-black hover:text-black my-5">Web Development & Data Analytics</h2>
       <RoughNotationGroup show={true}>
         <p>
         Hello! My name is 

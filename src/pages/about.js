@@ -42,7 +42,7 @@ const AboutPage = (props) => {
 </div>
 </div>
 </section>
-<section className="border-t py-4 border-headline">
+<section className="border-t py-4 border-yellow">
   <div className="grid md:grid-cols-2">
     <div className="flex flex-row justify-center items-center">
     <form name="contact" method="POST" data-netlify="true">
@@ -132,7 +132,7 @@ const AboutPage = (props) => {
                   </div>
                   <button 
                     type="submit"
-                    class="w-full bg-yellow border-4 text-xl border-headline p-4 rounded-lg">Send message</button>
+                    class="w-full bg-yellow hover:bg-white transition-all duration-500 hover:font-bold border-4 text-xl border-headline p-4 rounded-lg">Send message</button>
                 </form>
     </div>
     <div className="flex flex-col justify-center items-center">
