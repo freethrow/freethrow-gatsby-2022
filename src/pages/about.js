@@ -129,7 +129,9 @@ const AboutPage = (props) => {
                       </div>
                     </div>
                   </div>
-                  <button class="w-full bg-yellow border-4 text-xl border-headline p-4 rounded-lg">Send message</button>
+                  <button 
+                    type="submit"
+                    class="w-full bg-yellow border-4 text-xl border-headline p-4 rounded-lg">Send message</button>
                 </form>
     </div>
     <div className="flex flex-col justify-center items-center">
