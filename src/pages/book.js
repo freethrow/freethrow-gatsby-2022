@@ -30,7 +30,7 @@ const BookPage = (props) => {
   </div>
 
 <div className="flex flex-col text-headline font-thin md:w-1/2">
-  <h2 className=" text-7xl font-black hover:text-black my-5">My Book</h2>
+  <h2 className="text-2xl md:text-7xl font-black hover:text-black my-5">My Book</h2>
   <div className="structured"> 
         <StructuredText data={props.data.datoCmsPage.content} />
   </div>

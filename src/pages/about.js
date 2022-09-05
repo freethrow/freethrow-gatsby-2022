@@ -1,7 +1,8 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { StructuredText } from 'react-datocms';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
 
 import {MdEmail} from 'react-icons/md'
 
@@ -34,7 +35,7 @@ const AboutPage = (props) => {
   </div>
 
 <div className="flex flex-col text-headline font-thin md:w-1/2">
-  <h2 className=" text-7xl font-black hover:text-black my-5">About + Contact</h2>
+  <h2 className=" text-2xl md:text-7xl font-black hover:text-black my-5">About + Contact</h2>
   <div className="structured"> 
         <StructuredText data={props.data.datoCmsPage.content} />
   </div>
@@ -147,14 +148,19 @@ const AboutPage = (props) => {
         <li><MdEmail className=" inline text-headline p-2" size={32} /><span className="contacts">freethrowrs#gmail.com</span></li>
         <li>
         <RoughNotation type="highlight" show={true} animationDelay={2000} animationDuration={3000} color="#ffd803">
-          <BsLinkedin className=" inline text-headline p-2" size={32} /><span className="contacts">aleksendric#gmail.com</span>
+          <BsLinkedin className=" inline text-headline p-2" size={32} />
+          <span className="contacts"><Link to="https://www.linkedin.com/in/aleksendric/">LinkedIn</Link>
+            </span>
         </RoughNotation>
         </li>
-        <li><BsTwitter className=" inline text-headline p-2" size={32} /> <span className="inline text-headline p-2">Twitter</span></li>
+        <li><BsTwitter className=" inline text-headline p-2" size={32} /> <span className="inline text-headline p-2">
+          <Link to="https://twitter.com/thefreethrow5">Twitter</Link>
+          </span></li>
         <li><BsFilePdf className=" inline text-headline p-2" size={32} /> <span className="inline text-headline p-2">Curriculum</span></li>
         <li>
         <RoughNotation type="highlight" animationDelay={2000} show={true}  color="#ffd803">
-          <BsBook className="inline text-headline p-2" size={32} /> <span className="inline text-headline p-2">The Book</span>
+          <BsBook className="inline text-headline p-2" size={32} /> <span className="inline text-headline p-2">
+            <Link to="https://farmstack.site">The Book</Link></span>
         </RoughNotation>
         </li>
       </ul>

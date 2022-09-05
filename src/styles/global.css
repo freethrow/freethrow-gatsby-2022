@@ -22,6 +22,10 @@
       @apply my-3 leading-7
    }
 
+   .bignav a {
+      @apply hover:bg-yellow transition-colors duration-500
+   }
+
    .structured strong{
       @apply font-bold
    }
